@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RainSafe - Road Alert System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>🌧️ RainSafe</h1>
+        <p>Rain-Safe Road Alert System</p>
+        <span>🟢 System Active</span>
+    </header>
+
+    <main class="container">
+
+        <section class="dashboard">
+
+            <div class="card">
+                <h3>🛣️ Road Monitoring</h3>
+                <p>Monitor rain-affected roads</p>
+            </div>
+
+            <div class="card">
+                <h3>🚨 Quick Alerts</h3>
+                <p>Report road conditions</p>
+            </div>
+
+            <div class="card">
+                <h3>🔍 Fast Search</h3>
+                <p>Find road information</p>
+            </div>
+
+        </section>
+
+
+        <section class="section-box">
+
+            <h2>🚨 Report New Road Alert</h2>
+
+            <form action="/add" method="POST">
+
+                <label>Road ID</label>
+                <input type="text"
+                       name="road_id"
+                       placeholder="Example: R105"
+                       required>
+
+                <label>Road Name</label>
+                <input type="text"
+                       name="road_name"
+                       placeholder="Example: Velachery Main Road"
+                       required>
+
+                <label>Alert Type</label>
+
+                <select name="status">
+                    <option>Safe</option>
+                    <option>Waterlogging</option>
+                    <option>Road Closed</option>
+                    <option>Pothole / Road Damage</option>
+                    <option>Heavy Traffic</option>
+                    <option>Slippery Road</option>
+                    <option>Fallen Tree</option>
+                    <option>Electrical Hazard</option>
+                    <option>Low Visibility</option>
+                    <option>Diversion</option>
+                </select>
+
+                <label>Severity</label>
+
+                <select name="severity">
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                </select>
+
+                <label>Description</label>
+
+                <textarea name="description"
+                          placeholder="Describe the road condition..."></textarea>
+
+                <button type="submit">
+                    🚨 Report Alert
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <section class="section-box">
+
+            <h2>🔍 Search Road</h2>
+
+            <form action="/search" method="POST">
+
+                <input type="text"
+                       name="search_id"
+                       placeholder="Example: R102"
+                       required>
+
+                <button type="submit">
+                    🔍 Search Road
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <section class="section-box">
+
+            <h2>🛣️ Current Road Alerts</h2>
+
+            <p>View all stored road conditions.</p>
+
+            <a href="/alerts">
+                <button type="button">
+                    View All Road Alerts
+                </button>
+            </a>
+
+        </section>
+
+
+        <section class="hash-box">
+
+            <h2>⚡ Hash Table Based System</h2>
+
+            <p>
+                RainSafe uses a Hash Table to store road alert
+                information using Road ID as the key.
+            </p>
+
+            <div class="hash-example">
+
+                <p><b>R101</b> → Safe</p>
+                <p><b>R102</b> → Waterlogging</p>
+                <p><b>R103</b> → Heavy Traffic</p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>🌧️ RainSafe — Rain-Safe Road Alert System</p>
+
+        <p>Python • Flask • HTML • CSS • Hash Table</p>
+
+    </footer>
+
+</body>
+
+</html>
